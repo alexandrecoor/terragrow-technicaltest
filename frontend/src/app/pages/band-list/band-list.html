@@ -1,0 +1,24 @@
+<ng-container *ngIf="!isLoading; else loading">
+  <h2 class="text-xl font-bold mb-4">Bandes de la parcelle "
+    {{ plotName }}"
+  </h2>
+
+  <div *ngIf="bands.length > 0; else noBands">
+    <ul class="space-y-2">
+      <li *ngFor="let b of bands" class="p-3 bg-gray-100 rounded flex justify-between">
+        Bande
+        {{ b.number }} :
+        {{ b.length }} m ×
+        {{ b.width }} m
+      </li>
+    </ul>
+  </div>
+
+  <ng-template #noBands>
+    <p class="text-gray-500">Aucune bande trouvée pour cette parcelle.</p>
+  </ng-template>
+</ng-container>
+
+<ng-template #loading>
+  <p class="text-gray-400 italic">Chargement…</p>
+</ng-template>

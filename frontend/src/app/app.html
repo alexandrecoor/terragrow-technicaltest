@@ -1,0 +1,22 @@
+<nav class="bg-blue-600 text-white px-6 py-4 shadow">
+  <div class="max-w-5xl mx-auto flex items-center justify-between">
+    <h1 class="text-lg font-semibold tracking-wide">
+      Terragrow Test Technique
+      <span class="text-sm text-gray-900 italic">par Alexandre</span>
+    </h1>
+    <div class="space-x-4">
+      <a routerLink="/plots" routerLinkActive="text-blue-300" class="transition-colors hover:text-blue-300" [routerLinkActiveOptions]="{ exact: true }">
+        Voir les parcelles
+      </a>
+      <a routerLink="/plots/create" routerLinkActive="text-blue-300" class="transition-colors hover:text-blue-300">
+        Créer une parcelle
+      </a>
+    </div>
+  </div>
+</nav>
+
+<main class="min-h-[calc(100vh-64px)] flex items-start justify-center px-4 py-8 bg-gray-50">
+  <div class="w-full max-w-3xl">
+    <router-outlet />
+  </div>
+</main>
