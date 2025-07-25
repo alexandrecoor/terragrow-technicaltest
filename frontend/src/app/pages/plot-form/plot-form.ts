@@ -9,7 +9,7 @@ import { firstValueFrom } from "rxjs";
     selector: "app-plot-form",
     standalone: true,
     imports: [CommonModule, ReactiveFormsModule],
-    templateUrl: "./plot-form.html",
+    templateUrl: "./plot-form.html"
 })
 export class PlotFormComponent {
     form: FormGroup;
@@ -37,11 +37,9 @@ export class PlotFormComponent {
             console.log("Plot successfully created:", res);
             await this.router.navigate([`/plots/${res.id}/bands`]);
         } catch (error: any) {
-            if (error.status === 409) {
-                this.errorMessage = "Ce nom de parcelle existe déjà.";
-            } else {
-                this.errorMessage = "Une erreur est survenue.";
-            }
+            const apiMessage =
+                error?.error?.message || error?.error?.error || "An unknown error occurred.";
+            this.errorMessage = apiMessage;
         }
     }
 }
